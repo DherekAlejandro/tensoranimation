@@ -34,11 +34,16 @@ class CircleAnnouncement(ThreeDScene):
 
         #self.play(Create(axes), FadeOut(ax), FadeOut(text2))
         self.play(Create(axes))
-        self.move_camera(
-            theta = -45* DEGREES
+        self.set_camera_orientation(
+            theta = -90* DEGREES,
+            phi = 90* DEGREES,
         )
+        
+        
+        
         self.move_camera(
-            phi = +45* DEGREES
+            theta = -45* DEGREES,
+            phi = 45* DEGREES,
         )
 
 def main():
