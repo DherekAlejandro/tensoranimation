@@ -3,7 +3,6 @@ import numpy as np
 
 class CircleAnnouncement(ThreeDScene):
     def construct(self):
-        """
         announcement = Text("Esto es un escalar")
         
         self.play(Write(announcement))
@@ -28,12 +27,11 @@ class CircleAnnouncement(ThreeDScene):
 
         vector_1 = Vector(direction = ax.c2p(5, 5))
         self.play(Create(vector_1))
-        """
 
-        axes = ThreeDAxes()
+        axes = ThreeDAxes(x_range=[-10, 10, 2], y_range=[-10, 10, 2], z_range=[-10, 10, 2])
 
-        #self.play(Create(axes), FadeOut(ax), FadeOut(text2))
-        self.play(Create(axes))
+        self.play(Create(axes), FadeOut(ax), FadeOut(text2))
+        self.play(Create(axes), FadeOut(nl), blue_circle.animate.move_to(axes.c2p(5, 5, 0)),vector_1.animate.move_to(axes.c2p(5, 5, 0)))
         self.set_camera_orientation(
             theta = -90* DEGREES,
             phi = 90* DEGREES,
