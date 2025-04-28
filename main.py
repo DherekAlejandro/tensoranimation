@@ -1,8 +1,9 @@
 from manim import *
 import numpy as np
 
-class CircleAnnouncement(Scene):
+class CircleAnnouncement(ThreeDScene):
     def construct(self):
+        """
         announcement = Text("Esto es un escalar")
         
         self.play(Write(announcement))
@@ -17,16 +18,28 @@ class CircleAnnouncement(Scene):
 
 
         self.play(Create(blue_circle))
-
+        
         text2 = Text("Esto es un vector")
 
         ax = Axes(x_range=[-10, 10, 2], y_range=[-10,10,2])
         self.play(Create(text2), text2.animate.next_to(ax, UP, buff=0.2), FadeOut(announcement))
         self.play(Create(ax), FadeOut(nl), blue_circle.animate.move_to(ax.c2p(5, 5)))
-
+        
 
         vector_1 = Vector(direction = ax.c2p(5, 5))
         self.play(Create(vector_1))
+        """
+
+        axes = ThreeDAxes()
+
+        #self.play(Create(axes), FadeOut(ax), FadeOut(text2))
+        self.play(Create(axes))
+        self.move_camera(
+            theta = -45* DEGREES
+        )
+        self.move_camera(
+            phi = +45* DEGREES
+        )
 
 def main():
     c = CircleAnnouncement()
